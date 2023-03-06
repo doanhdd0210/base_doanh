@@ -20,5 +20,8 @@
   "have_an_account_already": "Have an account already?",
   "out_app": "Press back again to exit",
   "allow_permission": "Muốn quyền truy cập vào camera và Ảnh của bạn.",
-  "go_to_setting": "Đi tới Cài đặt"
+  "go_to_setting": "Đi tới Cài đặt",
+  "back": "Back",
+  "popular_list": "Popular list"
+
 }

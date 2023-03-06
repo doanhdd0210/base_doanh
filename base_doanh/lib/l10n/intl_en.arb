@@ -21,5 +21,7 @@
   "have_an_account_already": "Have an account already?",
   "out_app":"Press back again to exit",
   "allow_permission": "Allow to access your Camera and Photos",
-  "go_to_setting": "Go to Setting"
+  "go_to_setting": "Go to Setting",
+  "back": "Back",
+  "popular_list": "Popular list"
 }

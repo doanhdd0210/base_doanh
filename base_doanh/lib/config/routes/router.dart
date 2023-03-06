@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:base_doanh/presentation/movie_screen/ui/movie_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:base_doanh/presentation/main_screen/ui/main_screen.dart';
@@ -23,7 +24,7 @@ class AppRouter {
         return getPageRouteType(const MainScreen());
       case splash:
         return getPageRouteType(
-          const SplashScreen(),
+          const MovieScreen(),
         );
     }
     return null;

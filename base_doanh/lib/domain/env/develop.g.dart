@@ -9,5 +9,5 @@ part of 'develop.dart';
 const _$configDevEnvJsonLiteral = {
   'type': 'develop',
   'app_name': '[DEV]base_doanh Driver',
-  'base_url': 'https://www.google.com/'
+  'base_url': 'https://api.themoviedb.org/'
 };

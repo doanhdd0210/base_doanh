@@ -55,7 +55,7 @@ class AppBarNormal extends AppBar with PreferredSizeWidget {
 
 Widget _buildLeading(Widget? child, BuildContext context) {
   return buildAppBarButton(
-    child ?? ImageAssets.svgAssets(ImageAssets.icTicket),
+    child ?? ImageAssets.svgAssets(ImageAssets.icSuccess),
     onPressed: () {
       closeScreen(context);
     },

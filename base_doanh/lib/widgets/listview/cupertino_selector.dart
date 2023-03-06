@@ -90,7 +90,7 @@ class _CupertinoSelectorState extends State<CupertinoSelector> {
                     Transform.rotate(
                       angle: -pi / 2,
                       child: SvgPicture.asset(
-                        ImageAssets.ic_dropdown,
+                        ImageAssets.icSuccess,
                         height: 12,
                         width: 16,
                       ),
@@ -101,7 +101,7 @@ class _CupertinoSelectorState extends State<CupertinoSelector> {
                     Transform.rotate(
                       angle: pi / 2,
                       child: SvgPicture.asset(
-                        ImageAssets.ic_dropdown,
+                        ImageAssets.icSuccess,
                         height: 12,
                         width: 16,
                       ),

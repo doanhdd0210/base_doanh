@@ -31,7 +31,7 @@ class _CloseTextBaseState extends State<CloseTextBase> {
       },
       child: widget.textEditingController.text.isNotEmpty
           ? SvgPicture.asset(
-              ImageAssets.ic_close,
+              ImageAssets.icSuccess,
               width: 20,
               height: 20,
             )

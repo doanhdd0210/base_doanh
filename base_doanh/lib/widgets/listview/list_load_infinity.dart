@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:base_doanh/config/themes/app_theme.dart';
-import 'package:base_doanh/data/exception/app_exception.dart';
-import 'package:base_doanh/generated/l10n.dart';
 import 'package:base_doanh/utils/constants/api_constants.dart';
 
 class ListLoadInfinity<T> extends StatefulWidget {
@@ -20,6 +18,7 @@ class ListLoadInfinity<T> extends StatefulWidget {
     this.belowWidget,
     this.isGetAll = false,
     this.reloadData,
+    this.isList = true,
   }) : super(key: key);
   final Future<List<T>> Function(int pageIndex, int pageSize, int offset)
       callData;
@@ -32,6 +31,7 @@ class ListLoadInfinity<T> extends StatefulWidget {
   final int pageSize;
   final LoadMoreController<T>? controller;
   final bool isGetAll;
+  final bool isList;
 
   @override
   _ListLoadInfinityState<T> createState() => _ListLoadInfinityState<T>();
@@ -75,19 +75,40 @@ class _ListLoadInfinityState<T> extends State<ListLoadInfinity<T>> {
             controller: controller.scrollController,
             slivers: [
               ...widget.aboveWidget?.map((e) => e) ?? [],
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return _KeepAlive(
-                      child: widget.itemBuilder(
-                        controller.listData.value[index],
-                        index,
+              widget.isList
+                  ? SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          return _KeepAlive(
+                            child: widget.itemBuilder(
+                              controller.listData.value[index],
+                              index,
+                            ),
+                          );
+                        },
+                        childCount: data.length,
                       ),
-                    );
-                  },
-                  childCount: data.length,
-                ),
-              ),
+                    )
+                  : SliverGrid(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.7,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                        mainAxisExtent: 285,
+                      ),
+                      delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) {
+                          return _KeepAlive(
+                            child: widget.itemBuilder(
+                              controller.listData.value[index],
+                              index,
+                            ),
+                          );
+                        },
+                        childCount: data.length,
+                      ),
+                    ),
               SliverToBoxAdapter(
                 child: StreamBuilder<bool>(
                   stream: controller.isLoading,
@@ -98,7 +119,7 @@ class _ListLoadInfinityState<T> extends State<ListLoadInfinity<T>> {
                         padding: const EdgeInsets.all(16),
                         child: Center(
                           child: CircularProgressIndicator(
-                            color: AppTheme.getInstance().primaryColor(),
+                            // color: AppTheme.getInstance().primaryColor(),
                           ),
                         ),
                       );
@@ -125,7 +146,8 @@ class _ListLoadInfinityState<T> extends State<ListLoadInfinity<T>> {
                           }
                         }
                         if (data.isEmpty) {
-                          return widget.noDataWidget ?? const SizedBox(); //todo handle widget
+                          return widget.noDataWidget ??
+                              const SizedBox(); //todo handle widget
                         } else {
                           return const SizedBox.shrink();
                         }
@@ -134,7 +156,7 @@ class _ListLoadInfinityState<T> extends State<ListLoadInfinity<T>> {
                   },
                 ),
               ),
-              ...widget.belowWidget?.map((e) => e) ?? [] ,
+              ...widget.belowWidget?.map((e) => e) ?? [],
             ],
           );
         },

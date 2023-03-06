@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "allow_permission": MessageLookupByLibrary.simpleMessage(
             "Muốn quyền truy cập vào camera và Ảnh của bạn."),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "continue_with": MessageLookupByLibrary.simpleMessage("Continue with"),
         "continue_with_email":
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "out_app":
             MessageLookupByLibrary.simpleMessage("Press back again to exit"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "popular_list": MessageLookupByLibrary.simpleMessage("Popular list"),
         "retry": MessageLookupByLibrary.simpleMessage("Retry"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "server_error": MessageLookupByLibrary.simpleMessage(

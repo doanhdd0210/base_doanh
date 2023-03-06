@@ -218,7 +218,7 @@ class FormInputBaseState extends State<FormInputBase> {
           isPass = !isPass;
         }),
         child: SvgPicture.asset(
-          isPass ? ImageAssets.ic_close : ImageAssets.ic_close, //todo
+          isPass ? ImageAssets.icSuccess : ImageAssets.icSuccess, //todo
         ),
       );
     } else {

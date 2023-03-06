@@ -327,7 +327,7 @@ class TextFieldCustomState extends State<TextFieldCustom> {
                                 },
                                 background: Colors.transparent,
                                 rightIcon: ImageAssets.svgAssets(
-                                  ImageAssets.ic_close,
+                                  ImageAssets.icSuccess,
                                   color: color717294,
                                 ),
                               );

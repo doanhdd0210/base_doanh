@@ -11,7 +11,7 @@ class BackAppBar extends StatelessWidget {
         Navigator.pop(context);
       },
       child: Center(
-        child: ImageAssets.svgAssets(ImageAssets.ic_close),
+        child: ImageAssets.svgAssets(ImageAssets.icBack),
       ),
     );
   }
