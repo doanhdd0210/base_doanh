@@ -408,7 +408,7 @@ class _CoolDropdownState extends State<CoolDropdown>
                       rightIcon: Align(
                         alignment: Alignment.bottomRight,
                         child: ImageAssets.svgAssets(
-                          ImageAssets.ic_dropdown,
+                          ImageAssets.icSuccess,
                         ),
                       ),
                       contentPadding: widget.contentPadding,
@@ -429,7 +429,7 @@ class _CoolDropdownState extends State<CoolDropdown>
                       rightIcon: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: ImageAssets.svgAssets(
-                          ImageAssets.ic_dropdown,
+                          ImageAssets.icSuccess,
                           width: 13,
                           height: 7,
                           fit: BoxFit.cover,

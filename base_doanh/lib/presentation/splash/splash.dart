@@ -74,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen>
         children: [
           const Positioned.fill(
             child: Image(
-              image: AssetImage(ImageAssets.ic_close),
+              image: AssetImage(ImageAssets.imgEmpty),
               fit: BoxFit.cover,
             ),
           ),

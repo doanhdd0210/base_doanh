@@ -481,7 +481,7 @@ class SelectFileButtonState extends State<SelectFileButton> {
               onDelete();
             },
             child: SvgPicture.asset(
-              ImageAssets.ic_close,
+              ImageAssets.icSuccess,
               width: 10,
               height: 10,
               fit: BoxFit.cover,

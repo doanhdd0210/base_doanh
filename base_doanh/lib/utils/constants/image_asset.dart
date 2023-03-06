@@ -4,16 +4,16 @@ import 'package:base_doanh/config/resources/images.dart';
 
 class ImageAssets {
   //png
-  static String backgroundHeaderPng = '$baseImg/header.png';
-  static const String splash_background = '$baseImg/background_splash.png';
-  static const String image_splash = '$baseImg/logo_app.svg';
+  // static String backgroundHeaderPng = '$baseImg/header.png';
+  // static const String splash_background = '$baseImg/background_splash.png';
+  static const String imgEmpty = '$baseImg/img_empty.png';
 
   //svg
-  static String icTicket = '$baseImg/ic_ticket.svg';
-  static String icTabTrungChuyen = '$baseImg/ic_tab_trung_chuyen.svg';
-  static String icTabGiaoVe = '$baseImg/ic_tab_giao_ve.svg';
-  static const String ic_close = '$baseIcon/ic_close.svg';
-  static const String ic_dropdown = '$baseIcon/ic_dropdown.svg';
+  // static String icTicket = '$baseImg/ic_ticket.svg';
+  // static String icTabTrungChuyen = '$baseImg/ic_tab_trung_chuyen.svg';
+  // static String icTabGiaoVe = '$baseImg/ic_tab_giao_ve.svg';
+  // static const String icSuccess = '$baseIcon/icSuccess.svg';
+  // static const String icSuccess = '$baseIcon/icSuccess.svg';
   static String icSuccess = '$baseImg/ic_success.svg';
 
 

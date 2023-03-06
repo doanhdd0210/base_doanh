@@ -64,7 +64,7 @@ class _CustomBottomHomeAppbarState extends State<CustomBottomHomeAppbar> {
                       ? itemBottomBar(
                           itemSelected(
                             child: ImageAssets.svgAssets(
-                              ImageAssets.icTicket,
+                              ImageAssets.icSuccess,
                               color: AppTheme.getInstance().primaryColor(),
                             ),
                           ),
@@ -73,7 +73,7 @@ class _CustomBottomHomeAppbarState extends State<CustomBottomHomeAppbar> {
                         )
                       : itemBottomBar(
                           ImageAssets.svgAssets(
-                            ImageAssets.icTicket,
+                            ImageAssets.icSuccess,
                             color: colorBlack45,
                           ),
                           S.current.ok,
@@ -91,7 +91,7 @@ class _CustomBottomHomeAppbarState extends State<CustomBottomHomeAppbar> {
                       ? itemBottomBar(
                           itemSelected(
                             child: ImageAssets.svgAssets(
-                              ImageAssets.icTabTrungChuyen,
+                              ImageAssets.icSuccess,
                               color: AppTheme.getInstance().primaryColor(),
                             ),
                           ),
@@ -100,7 +100,7 @@ class _CustomBottomHomeAppbarState extends State<CustomBottomHomeAppbar> {
                         )
                       : itemBottomBar(
                           ImageAssets.svgAssets(
-                            ImageAssets.icTabTrungChuyen,
+                            ImageAssets.icSuccess,
                             color: colorBlack45,
                           ),
                           S.current.ok,
@@ -118,7 +118,7 @@ class _CustomBottomHomeAppbarState extends State<CustomBottomHomeAppbar> {
                       ? itemBottomBar(
                     itemSelected(
                       child: ImageAssets.svgAssets(
-                        ImageAssets.icTabGiaoVe,
+                        ImageAssets.icSuccess,
                         color: AppTheme.getInstance().primaryColor(),
                       ),
                     ),
@@ -127,7 +127,7 @@ class _CustomBottomHomeAppbarState extends State<CustomBottomHomeAppbar> {
                   )
                       : itemBottomBar(
                     ImageAssets.svgAssets(
-                      ImageAssets.icTabGiaoVe,
+                      ImageAssets.icSuccess,
                       color: colorBlack45,
                     ),
                     S.current.ok,
