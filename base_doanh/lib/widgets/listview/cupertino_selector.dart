@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:base_doanh/utils/constants/image_asset.dart';
+import 'package:hapycar/utils/constants/image_asset.dart';
 
 import 'copertino_picker_custom.dart';
 
@@ -96,7 +96,7 @@ class _CupertinoSelectorState extends State<CupertinoSelector> {
                       ),
                     ),
                     const Expanded(
-                      child: SizedBox.expand(),
+                      child: SizedBox.shrink(),
                     ),
                     Transform.rotate(
                       angle: pi / 2,

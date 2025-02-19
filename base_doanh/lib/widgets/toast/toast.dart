@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:base_doanh/config/resources/color.dart';
-import 'package:base_doanh/config/resources/styles.dart';
-import 'package:base_doanh/config/themes/app_theme.dart';
-import 'package:base_doanh/utils/constants/image_asset.dart';
-import 'package:base_doanh/utils/screen_controller.dart';
-import 'package:base_doanh/utils/style_utils.dart';
+import 'package:hapycar/config/resources/color.dart';
+import 'package:hapycar/config/resources/styles.dart';
+import 'package:hapycar/utils/constants/image_asset.dart';
+import 'package:hapycar/utils/screen_controller.dart';
+import 'package:hapycar/utils/style_utils.dart';
 
 enum ToastState {
   SUCCESS,
@@ -13,7 +12,7 @@ enum ToastState {
   WARNING,
 }
 
-Future<void> showToastCoral(
+Future<void> showToastM(
   BuildContext context, {
   String? image,
   String? message,
@@ -30,10 +29,12 @@ Future<void> showToastCoral(
   toast.removeQueuedCustomToasts();
   toast.showToast(
     child: ToastView(
-      margin: margin ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+      margin: margin ?? const EdgeInsets.symmetric(horizontal: 0, vertical: 24),
       message: message,
-      image: ImageAssets.svgAssets(
+      image: Image.asset(
         image ?? state.getIcon(),
+        height: 24,
+        width: 24,
       ),
       title: title,
       state: state,
@@ -46,11 +47,11 @@ extension ToastStateExt on ToastState {
   Color getColor() {
     switch (this) {
       case ToastState.SUCCESS:
-        return colorSuccess;
+        return colorWhite;
       case ToastState.ERROR:
-        return colorError;
+        return colorWhite;
       case ToastState.WARNING:
-        return colorWarning;
+        return colorWhite;
     }
   }
 
@@ -70,9 +71,9 @@ extension ToastStateExt on ToastState {
       case ToastState.SUCCESS:
         return ImageAssets.icSuccess;
       case ToastState.ERROR:
-        return ImageAssets.icSuccess; //Todo
+        return ImageAssets.icError;
       case ToastState.WARNING:
-        return ImageAssets.icSuccess; //Todo
+        return ImageAssets.icSuccess;
     }
   }
 }
@@ -167,11 +168,11 @@ class ToastView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: state.getColor(),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(10),
         boxShadow: const [
           BoxShadow(
             color: colorNote,
-            blurRadius: 40,
+            blurRadius: 15,
             offset: Offset(0, 12),
           ),
         ],
@@ -196,13 +197,13 @@ class ToastView extends StatelessWidget {
                 if (title != null)
                   Text(
                     title ?? '',
-                    style: TextStyleCustom.textMedium14
+                    style: TextStyleCustom.f14w500
                         .apply(color: state.getColorTitle()),
                   ),
                 if (message != null)
                   Text(
                     message ?? '',
-                    style: TextStyleCustom.textRegular12,
+                    style: TextStyleCustom.f12w400,
                   ),
               ],
             ),

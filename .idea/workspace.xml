@@ -9,36 +9,332 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef05494c-6a33-45f4-924f-b6d578f6ed89" name="Changes" comment="" />
+    <list default="true" id="ef05494c-6a33-45f4-924f-b6d578f6ed89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/date_time_picker/flutter_datetime_picker.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/date_time_picker/src/date_format.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/date_time_picker/src/date_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/date_time_picker/src/datetime_util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/date_time_picker/src/i18n_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/form_input/form_input.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/tree/tree_node.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/tree/tree_node_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/tree/tree_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/tree/tree_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/camera_custom.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/field_image.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/field_text.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/field_text_api.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/field_text_car_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/input_drop_down_base.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/location_select.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/preview_image.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/render_check_box.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/select_car.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/widget/type_car.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/kotlin/com/example/base_doanh/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/assets/fonts/SFUIText-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/assets/fonts/SFUIText-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/assets/fonts/SFUIText-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/assets/fonts/SFUIText-Semibold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/assets/icon/ic_success.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/assets/images/img_empty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/app_config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/base/base_cubit.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/base/base_fullscreen_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/base/base_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/base/root_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/base/rx.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/base/state_base.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/resources/color.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/resources/dimen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/resources/images.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/resources/strings.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/resources/styles.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/config/themes/app_theme.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/di/flutter_transformer.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/di/module.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/error/error_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/error/error_response.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/exception/app_exception.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/helper/network_constants.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/network/network_checker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/network/network_handler.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/network/unauthorized_handle.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/request/sign_up_request.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/response/account/account_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/response/account/sign_up_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/result/result.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/data/result/result.freezed.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/develop.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/model/app_constants.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/model/app_constants.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/product.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/product.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/product.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/staging.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/staging.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/env/staging.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/firebase/firebase_message/firebase_config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/firebase/firebase_message/notification_service.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/locals/logger.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/locals/prefs_service.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/domain/model/authenication/unauthorized_model.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/generated/intl/messages_all.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/main_develop.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/main_product.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/main_staging.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/presentation/main_screen/cubit/main_cubit.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/presentation/main_screen/cubit/main_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/presentation/main_screen/ui/main_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/presentation/splash/splash.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/app_bar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/app_utils.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/constants/app_constants.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/debounce.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/extensions/common_ext.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/extensions/date_time_ext.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/extensions/enum_ext.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/extensions/number_ext.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/extensions/string_ext.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/get_ext.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/logic_social/login_apple.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/logic_social/login_facebook.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/logic_social/login_google.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/number_formatter.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/screen_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/style_utils.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/utils/text_helper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/app_bar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/app_button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/bottom_tab.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/button/button_custom.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/button/button_gradient.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/button/button_outline.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/check_box/check_box.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/android_dialog_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/cupertino_loading.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/decorate_app.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/dialog_custom.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/dialog_utils.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/hero_dialog.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/indicator_painter.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/ios_dialog_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/line_spin_fade_loader.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/loading_loadmore.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dialog/modal_progress_hud.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dropdown/drop_down_custom.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dropdown/widget/cool_drop_down_custom.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dropdown/widget/drop_down_body.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/dropdown/widget/drop_down_util.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/listener/event_bus.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/listview/copertino_picker_custom.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/listview/cupertino_selector.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/listview/list_load_infinity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/base_doanh/lib/widgets/listview/list_load_infinity.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/listview/listview_loadmore.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/popular_widget/confetti_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/popular_widget/container_bottomsheet.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/popular_widget/date_picker.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/select_file/select_file.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/select_file/select_file_cubit.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/sliver_header.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/text/custom_search_text.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/close_text_base.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/custom_textfield.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/form_group.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/prefix_icon.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/text_field_custom_type2.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/text_validate.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/textformfield/textfield_custom.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/toast/toast.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/views/empty_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/views/expand_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/views/state_error_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/views/state_layout.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/lib/widgets/views/state_stream_layout.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/main.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/my_application.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/linux/my_application.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Base.lproj/MainMenu.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Configs/AppInfo.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Configs/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Configs/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Configs/Warnings.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/DebugProfile.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/MainFlutterWindow.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/macos/Runner/Release.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/icons/Icon-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/icons/Icon-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/icons/Icon-maskable-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/icons/Icon-maskable-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/web/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/Runner.rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/flutter_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/flutter_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/resource.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/resources/app_icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/runner.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/utils.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/utils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/win32_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_doanh/windows/runner/win32_window.h" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="featute/doanhdd_test" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;doanhdd0210&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/doanhdd0210/base_doanh.git&quot;,
+    &quot;accountId&quot;: &quot;824e6e1e-2d65-4b38-9bff-6e95ae3acd27&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2MdesCcP2JnW1iJYlkIXy6GBlLw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/doducdoanh/StudioProjects/base_doanh/base_doanh/lib/widgets&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/base_doanh/lib/widgets" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -50,6 +346,10 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SwiftWorkspaceSettings">
+    <option name="detectedToolchain" value="true" />
+    <option name="toolchainPathValue" value="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ef05494c-6a33-45f4-924f-b6d578f6ed89" name="Changes" comment="" />

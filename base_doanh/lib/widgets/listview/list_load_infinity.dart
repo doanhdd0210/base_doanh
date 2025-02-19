@@ -1,252 +1,353 @@
-import 'dart:async';
-
+import 'package:hapycar/utils/constants/api_constants.dart';
+import 'package:hapycar/utils/constants/image_asset.dart';
+import 'package:hapycar/utils/style_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:base_doanh/config/themes/app_theme.dart';
-import 'package:base_doanh/data/exception/app_exception.dart';
-import 'package:base_doanh/generated/l10n.dart';
-import 'package:base_doanh/utils/constants/api_constants.dart';
 
-class ListLoadInfinity<T> extends StatefulWidget {
-  const ListLoadInfinity({
+import '../../config/themes/app_theme.dart';
+
+class ViewLoadMoreBase extends StatefulWidget {
+  const ViewLoadMoreBase({
     Key? key,
-    required this.callData,
-    this.pageSize = ApiConstants.DEFAULT_PAGE_SIZE,
-    required this.itemBuilder,
-    this.noDataWidget,
-    this.errorWidget,
-    this.controller,
-    this.aboveWidget,
-    this.belowWidget,
-    this.isGetAll = false,
-    this.reloadData,
+    required this.functionInit,
+    required this.itemWidget,
+    required this.controller,
+    this.isInit = false,
+    this.isGrid = false,
+    this.notFoundData,
+    this.child,
+    this.isCustom,
+    this.expandedHeight,
+    this.isChildShowHasData = false,
   }) : super(key: key);
-  final Future<List<T>> Function(int pageIndex, int pageSize, int offset)
-      callData;
-  final Widget Function(T item, int index) itemBuilder;
-  final Future<void> Function()? reloadData;
-  final List<Widget>? aboveWidget;
-  final List<Widget>? belowWidget;
-  final Widget? noDataWidget;
-  final Widget Function(Function() retry, dynamic error)? errorWidget;
-  final int pageSize;
-  final LoadMoreController<T>? controller;
-  final bool isGetAll;
+  final Future<dynamic> Function(int page, bool isInit) functionInit;
+  final Function(int index, dynamic data) itemWidget;
+  final LoadMoreController controller;
+  final bool isInit;
+  final bool isGrid;
+  final bool? isCustom;
+  final Widget? notFoundData;
+  final Widget? child;
+  final double? expandedHeight;
+  final bool isChildShowHasData;
 
   @override
-  _ListLoadInfinityState<T> createState() => _ListLoadInfinityState<T>();
+  State<ViewLoadMoreBase> createState() => _ViewLoadMoreBaseState();
 }
 
-class _ListLoadInfinityState<T> extends State<ListLoadInfinity<T>> {
-  late final LoadMoreController<T> controller;
+class _ViewLoadMoreBaseState extends State<ViewLoadMoreBase>
+    with AutomaticKeepAliveClientMixin {
+  late final LoadMoreController _controller;
 
   @override
   void initState() {
-    controller = widget.controller ?? LoadMoreController<T>();
-    controller.callData = widget.callData;
-    controller.pageSize = widget.pageSize;
-    controller.reloadCallback = widget.reloadData;
-    controller.isGetAll = widget.isGetAll;
-    controller.loadData();
-    controller.createListenScroll();
+    _controller = widget.controller;
+    _controller.functionInit = widget.functionInit;
     super.initState();
+    if (mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        if (widget.isInit) _controller.loadData(_controller.page);
+        _controller.handelLoadMore();
+      });
+    }
   }
 
-  @override
-  void dispose() {
-    if (widget.controller == null) {
-      controller.dispose();
+  double? _getHeight() {
+    final _h =
+        (widget.expandedHeight ?? 164) - MediaQuery.of(context).padding.top;
+    if (_h < 56) {
+      return 56;
+    } else {
+      return _h;
     }
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: () async {
-        await controller.reloadData();
-      },
-      child: StreamBuilder<List<T>>(
-        stream: controller.listData,
-        builder: (context, snapshot) {
-          final data = snapshot.data ?? [];
-          return CustomScrollView(
-            physics: const AlwaysScrollableScrollPhysics(),
-            controller: controller.scrollController,
-            slivers: [
-              ...widget.aboveWidget?.map((e) => e) ?? [],
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return _KeepAlive(
-                      child: widget.itemBuilder(
-                        controller.listData.value[index],
-                        index,
-                      ),
-                    );
-                  },
-                  childCount: data.length,
+    super.build(context);
+    if (widget.child != null && widget.isChildShowHasData == false) {
+      return RefreshIndicator(
+        onRefresh: () async {
+          if (_controller.isRefresh) {
+            _controller.page = ApiConstants.PAGE_BEGIN;
+            _controller.isLoadMore = false;
+            await _controller.loadData(_controller.page);
+          }
+        },
+        child: CustomScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          controller: _controller.controller,
+          slivers: <Widget>[
+            // SliverApps
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              snap: true,
+              floating: true,
+              expandedHeight: _getHeight(),
+              flexibleSpace: Container(
+                height: _getHeight(),
+                alignment: _getHeight() == 56
+                    ? Alignment.center
+                    : Alignment.bottomCenter,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: boxShadowBase,
                 ),
+                child: widget.child,
               ),
-              SliverToBoxAdapter(
-                child: StreamBuilder<bool>(
-                  stream: controller.isLoading,
-                  builder: (_, loadingValue) {
-                    final isLoad = loadingValue.data ?? false;
-                    if (isLoad) {
-                      return Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: AppTheme.getInstance().primaryColor(),
-                          ),
-                        ),
-                      );
-                    }
-                    return StreamBuilder(
-                      stream: controller.error,
-                      builder: (_, snapshot) {
-                        final error = snapshot.data;
-                        if (error != null) {
-                          if (widget.errorWidget != null) {
-                            return widget.errorWidget!(
-                              controller.onRetry,
-                              error,
-                            );
-                          } else {
-                            // return ErrorViewWidget(
-                            //   message: error is AppException
-                            //       ? error.message
-                            //       : S.current.something_went_wrong,
-                            //   onRetry: () {
-                            //     controller.onRetry();
-                            //   },
-                            // );
-                          }
-                        }
-                        if (data.isEmpty) {
-                          return widget.noDataWidget ?? const SizedBox(); //todo handle widget
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return StreamBuilder<List<dynamic>?>(
+                      stream: _controller.streamList,
+                      builder: (context, snapshot) {
+                        final list = snapshot.data;
+                        if (list?.isNotEmpty ?? false) {
+                          return Column(
+                            children: [
+                              _childL(
+                                list,
+                                isController: false,
+                                physics: NeverScrollableScrollPhysics(),
+                                isWarp: true,
+                              ),
+                              _load(),
+                            ],
+                          );
+                        } else if (list == null) {
+                          return SizedBox.shrink();
                         } else {
-                          return const SizedBox.shrink();
+                          return SingleChildScrollView(
+                              child: Center(
+                            child: widget.notFoundData ?? notFound(),
+                          ));
+                        }
+                      });
+                },
+                childCount: 1,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (widget.isCustom == true) {
+      return StreamBuilder<List<dynamic>?>(
+          stream: _controller.streamList,
+          builder: (context, snapshot) {
+            final list = snapshot.data;
+            if (list?.isNotEmpty ?? false) {
+              return Column(
+                children: [
+                  _childL(
+                    list,
+                    isWarp: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    isController: false,
+                    child: widget.isChildShowHasData ? widget.child : null,
+                  ),
+                  _load(),
+                ],
+              );
+            } else if (list == null) {
+              return SizedBox.shrink();
+            } else {
+              return SingleChildScrollView(
+                  child: Center(
+                child: widget.notFoundData ?? notFound(),
+              ));
+            }
+          });
+    } else {
+      return StreamBuilder<List<dynamic>?>(
+          stream: _controller.streamList,
+          builder: (context, snapshot) {
+            final list = snapshot.data;
+            if (list?.isNotEmpty ?? false) {
+              return Column(
+                children: [
+                  Expanded(
+                    child: RefreshIndicator(
+                      onRefresh: () async {
+                        if (_controller.isRefresh) {
+                          _controller.page = ApiConstants.PAGE_BEGIN;
+                          _controller.isLoadMore = false;
+                          await _controller.loadData(_controller.page);
                         }
                       },
-                    );
-                  },
-                ),
-              ),
-              ...widget.belowWidget?.map((e) => e) ?? [] ,
-            ],
-          );
-        },
-      ),
-    );
+                      child: _childL(
+                        list,
+                      ),
+                    ),
+                  ),
+                  _load(),
+                ],
+              );
+            } else if (list == null) {
+              return SizedBox.shrink();
+            } else {
+              return SingleChildScrollView(
+                  child: Center(
+                child: widget.notFoundData ?? notFound(),
+              ));
+            }
+          });
+    }
   }
+
+  _load() => StreamBuilder<bool>(
+      stream: _controller.showLoad,
+      builder: (context, snapshot) {
+        if (snapshot.hasData && snapshot.data == true) {
+          _controller.controller.animateTo(
+            _controller.controller.position.maxScrollExtent + 32,
+            duration: Duration(milliseconds: 1000),
+            curve: Curves.easeOut,
+          );
+          return Container(
+            margin: EdgeInsets.only(
+              bottom: 16,
+            ),
+            child: LoadingAnimationWidget.fourRotatingDots(
+              size: 24,
+              color: AppTheme.getInstance().colorOrange(),
+            ),
+          );
+        }
+        return SizedBox.shrink();
+      });
+
+  @override
+  bool get wantKeepAlive => true;
+
+  _childL(
+    list, {
+    bool isController = true,
+    ScrollPhysics? physics,
+    bool isWarp = false,
+    Widget? child,
+  }) =>
+      child != null
+          ? Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (list?.length > 0) child,
+                _childLChild(
+                  list,
+                  isController: isController,
+                  physics: physics,
+                  isWarp: isWarp,
+                ),
+              ],
+            )
+          : _childLChild(
+              list,
+              isController: isController,
+              physics: physics,
+              isWarp: isWarp,
+            );
+
+  _childLChild(
+    list, {
+    bool isController = true,
+    ScrollPhysics? physics,
+    bool isWarp = false,
+  }) =>
+      widget.isGrid
+          ? GridView.builder(
+              shrinkWrap: isWarp,
+              physics: physics ?? AlwaysScrollableScrollPhysics(),
+              padding: EdgeInsets.only(
+                left: 16,
+                right: 16,
+                bottom: 16,
+                top: 16,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 157 / 251,
+              ),
+              controller: isController ? _controller.controller : null,
+              itemCount: list?.length,
+              itemBuilder: (context, index) =>
+                  widget.itemWidget(index, list?[index]),
+            )
+          : ListView.builder(
+              shrinkWrap: isWarp,
+              physics: physics ?? AlwaysScrollableScrollPhysics(),
+              padding: EdgeInsets.only(
+                top: 16,
+                left: 16,
+                right: 16,
+              ),
+              controller: isController ? _controller.controller : null,
+              itemCount: list?.length,
+              itemBuilder: (context, index) =>
+                  widget.itemWidget(index, list?[index]),
+            );
 }
 
 class LoadMoreController<T> {
-  final ScrollController scrollController = ScrollController();
-  final BehaviorSubject<List<T>> listData = BehaviorSubject.seeded([]);
-  final BehaviorSubject<bool> canLoadMore = BehaviorSubject.seeded(true);
-  final BehaviorSubject<bool> isLoading = BehaviorSubject.seeded(false);
-  final BehaviorSubject<dynamic> error = BehaviorSubject();
+  final BehaviorSubject<List<dynamic>?> streamList = BehaviorSubject();
+  BehaviorSubject<bool> showLoad = BehaviorSubject.seeded(false);
+  final ScrollController controller = ScrollController();
+  bool isLoadMore = false;
+  bool isRefresh = true;
+  int page = ApiConstants.PAGE_BEGIN;
+  Future<dynamic> Function(int page, bool isInit)? functionInit;
 
-  Future<List<T>> Function(int pageIndex, int pageSize, int offset)? callData;
-  Future<void> Function()? reloadCallback;
-  int pageSize = ApiConstants.DEFAULT_PAGE_SIZE;
-  int _pageIndex = ApiConstants.PAGE_BEGIN;
-  bool isGetAll = false;
-
-  void deleteItem(T item) {
-    final newData = listData.valueOrNull ?? [];
-    newData.remove(item);
-    listData.sink.add(newData);
+  reloadData() {
+    isRefresh = true;
+    page = ApiConstants.PAGE_BEGIN;
+    loadData(page);
   }
 
-  void addItem(T item, int index) {
-    final newData = listData.valueOrNull ?? [];
-    newData.insert(index, item);
-    listData.sink.add(newData);
+  initData(List<dynamic> list) {
+    streamList.add(list);
   }
 
-  Future<void> reloadData() async {
-    _pageIndex = ApiConstants.PAGE_BEGIN;
-    final listCall = [loadData(isNew: true)];
-    if (reloadCallback != null) {
-      listCall.add(reloadCallback!.call());
-    }
-    await Future.wait(listCall);
-  }
-
-  void createListenScroll() {
-    scrollController.addListener(() {
-      if (!isLoading.value && canLoadMore.value) {
-        if (scrollController.position.pixels >=
-            (scrollController.position.maxScrollExtent - 200)) {
-          loadData();
-        }
+  handelLoadMore() {
+    controller.addListener(() {
+      if (controller.position.maxScrollExtent == controller.offset &&
+          isLoadMore) {
+        page = page + 1;
+        loadData(page);
       }
     });
   }
 
-  Future<void> loadData({bool isNew = false}) async {
-    isLoading.sink.add(!isNew);
-    try {
-      final result = await callData?.call(
-            _pageIndex,
-            pageSize,
-            isNew ? 0 : (listData.valueOrNull ?? []).length,
-          ) ??
-          [];
-      checkCanLoad(result);
-      listData.sink.add(isNew ? result : [...listData.value..addAll(result)]);
-      _pageIndex++;
-      error.sink.add(null);
-    } catch (e) {
-      error.sink.add(e);
-      canLoadMore.sink.add(false);
-      if (isNew) {
-        listData.sink.add([]);
+  dispose() {
+    streamList.add(null);
+    isLoadMore = true;
+    page = ApiConstants.PAGE_BEGIN;
+    functionInit = null;
+    showLoad.add(false);
+  }
+
+  Future<void> loadData(int page, {bool isInit = true}) async {
+    if (functionInit != null) {
+      if (page != ApiConstants.PAGE_BEGIN) {
+        showLoad.add(true);
       }
-    } finally {
-      isLoading.sink.add(false);
+      final result = await functionInit!(page, isInit);
+      showLoad.add(false);
+      if (result != null) {
+        isLoadMore = result.length == ApiConstants.DEFAULT_PAGE_SIZE;
+      } else {
+        isLoadMore = false;
+      }
+      if (result.runtimeType == String) {
+        //todo
+      } else {
+        if (page == ApiConstants.PAGE_BEGIN) {
+          streamList.add(result);
+        } else {
+          streamList.add([...streamList.value ?? [], ...result]);
+        }
+      }
     }
   }
-
-  void onRetry() {
-    error.sink.add(null);
-    canLoadMore.sink.add(true);
-    loadData();
-  }
-
-  void checkCanLoad(List<T> data) {
-    return canLoadMore.sink.add(data.length >= pageSize && !isGetAll);
-  }
-
-  void dispose() {
-    scrollController.dispose();
-    listData.close();
-    canLoadMore.close();
-    isLoading.close();
-  }
-}
-
-class _KeepAlive extends StatefulWidget {
-  final Widget child;
-
-  const _KeepAlive({Key? key, required this.child}) : super(key: key);
-
-  @override
-  State<_KeepAlive> createState() => _KeepAliveState();
-}
-
-class _KeepAliveState extends State<_KeepAlive>
-    with AutomaticKeepAliveClientMixin {
-  @override
-  Widget build(BuildContext context) {
-    super.build(context);
-    return widget.child;
-  }
-
-  @override
-  bool get wantKeepAlive => true;
 }

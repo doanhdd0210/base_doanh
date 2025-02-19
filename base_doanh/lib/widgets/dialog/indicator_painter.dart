@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:base_doanh/widgets/dialog/decorate_app.dart';
+import 'package:hapycar/widgets/dialog/decorate_app.dart';
 
 const double _kMinIndicatorSize = 24.0;
 

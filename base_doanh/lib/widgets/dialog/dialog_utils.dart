@@ -1,81 +1,18 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:base_doanh/config/resources/color.dart';
-import 'package:base_doanh/config/resources/styles.dart';
-import 'package:base_doanh/config/themes/app_theme.dart';
-import 'package:base_doanh/utils/get_ext.dart';
-import 'package:base_doanh/utils/style_utils.dart';
-import 'package:base_doanh/widgets/button/button_custom.dart';
-import 'package:base_doanh/widgets/dialog/android_dialog_widget.dart';
-import 'package:base_doanh/widgets/dialog/cupertino_loading.dart';
-import 'package:base_doanh/widgets/dialog/ios_dialog_widget.dart';
+import 'package:hapycar/config/resources/styles.dart';
+import 'package:hapycar/config/themes/app_theme.dart';
+import 'package:hapycar/utils/style_utils.dart';
+import 'package:hapycar/widgets/button/button_custom.dart';
 
 class DialogUtils {
-  static void showAlert({
-    bool cancelable = false,
-    @required String? content,
-    String? title,
-    TextStyle? titleStyle,
-    TextStyle? contentStyle,
-    String? ok,
-    String? cancel,
-    Function? onConfirm,
-    Function? onCancel,
-  }) {
-    if (Get.isDialogOpen == true) return;
-    Get.dialog(
-      isAndroid()
-          ? AndroidDialog(
-              onWillPop: cancelable,
-              content: content,
-              title: title,
-              titleStyle: titleStyle,
-              contentStyle: contentStyle,
-              ok: ok,
-              cancel: cancel,
-              onConfirm: onConfirm,
-              onCancel: onCancel,
-            )
-          : IOSDialog(
-              content: content,
-              title: title,
-              titleStyle: titleStyle,
-              contentStyle: contentStyle,
-              ok: ok,
-              cancel: cancel,
-              onConfirm: onConfirm,
-              onCancel: onCancel,
-            ),
-      barrierDismissible: cancelable,
-    );
-  }
-
-  static void showLoading() {
-    Get.dialog(
-      WillPopScope(
-        child: const Dialog(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          child: Center(child: CupertinoLoading()),
-        ),
-        onWillPop: () async => false,
-      ),
-      barrierDismissible: false,
-    );
-  }
-
-  static void hideLoading() {
-    if (Get.isDialogOpen == true) Get.back();
-  }
-
   static void dismiss() {
     if (Get.isDialogOpen == true) Get.back();
   }
 
-  static void showCoralDialog({
+  static void showDialog({
     TextAlign? titleAlign,
     String? title,
     required String content,
@@ -84,6 +21,8 @@ class DialogUtils {
     bool barrierDismissible = true,
     String? positive,
     String? negative,
+    ButtonType negativeButtonType = ButtonType.PRIMARY,
+    ButtonType positiveButtonType = ButtonType.PRIMARY,
     Function()? positiveClick,
     Function()? negativeClick,
     Function()? onClose,
@@ -110,15 +49,11 @@ class DialogUtils {
             Center(
               child: Container(
                 constraints: BoxConstraints(
-                  maxHeight:
-                      MediaQueryData.fromWindow(WidgetsBinding.instance.window)
-                              .size
-                              .height *
-                          0.7,
+                  maxHeight: MediaQuery.of(Get.context!).size.height * 0.7,
                 ),
                 width: double.infinity,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
                 margin: const EdgeInsets.symmetric(horizontal: 24),
                 decoration: BoxDecoration(
                   color: AppTheme.getInstance().backgroundColor(),
@@ -129,12 +64,12 @@ class DialogUtils {
                   children: [
                     if (titleWidget != null) ...[
                       titleWidget,
-                      spaceH40,
+                      spaceH24,
                     ],
                     if (title != null) ...[
                       Text(
                         title,
-                        style: TextStyleCustom.textSemiBold16,
+                        style: TextStyleCustom.f16w600,
                         textAlign: TextAlign.center,
                       ),
                       spaceH24,
@@ -142,7 +77,7 @@ class DialogUtils {
                     SizedBox(
                       child: Text(
                         content,
-                        style: TextStyleCustom.textRegular12,
+                        style: TextStyleCustom.f14w500,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -154,18 +89,20 @@ class DialogUtils {
                           if (negative != null)
                             Expanded(
                               child: ButtonCustom(
+                                size: ButtonSize.SMALL,
+                                type: negativeButtonType,
                                 text: negative,
                                 onPressed: negativeClick ?? () {},
                                 background:
-                                AppTheme.getInstance().primaryColor(),
-                                foregroundColor:
-                                colorBlack85,
+                                    AppTheme.getInstance().primaryColor(),
                               ),
                             ),
-                          if (negative != null && positive != null) spaceW8,
+                          if (negative != null && positive != null) spaceW16,
                           if (positive != null)
                             Expanded(
                               child: ButtonCustom(
+                                size: ButtonSize.SMALL,
+                                type: positiveButtonType,
                                 text: positive,
                                 onPressed: positiveClick ?? () {},
                               ),
@@ -220,11 +157,7 @@ class DialogUtils {
             Center(
               child: Container(
                 constraints: BoxConstraints(
-                  maxHeight:
-                      MediaQueryData.fromWindow(WidgetsBinding.instance.window)
-                              .size
-                              .height *
-                          0.7,
+                  maxHeight: MediaQuery.of(Get.context!).size.height * 0.7,
                 ),
                 width: double.infinity,
                 padding:
@@ -244,7 +177,7 @@ class DialogUtils {
                     if (title != null) ...[
                       Text(
                         title,
-                        style: TextStyleCustom.textSemiBold16,
+                        style: TextStyleCustom.f16w600,
                         textAlign: TextAlign.center,
                       ),
                       spaceH24,
@@ -252,7 +185,7 @@ class DialogUtils {
                     SizedBox(
                       child: Text(
                         content,
-                        style: TextStyleCustom.textRegular12,
+                        style: TextStyleCustom.f12w400,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -268,8 +201,6 @@ class DialogUtils {
                                 onPressed: negativeClick ?? () {},
                                 background:
                                     AppTheme.getInstance().primaryColor(),
-                                foregroundColor:
-                                    colorBlack85,
                               ),
                             ),
                           if (negative != null && positive != null) spaceW8,

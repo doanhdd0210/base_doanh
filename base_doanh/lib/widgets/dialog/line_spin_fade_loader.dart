@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
-import 'package:base_doanh/widgets/dialog/indicator_painter.dart';
+import 'package:hapycar/widgets/dialog/indicator_painter.dart';
 
 /// LineSpinFadeLoader.
 class LineSpinFadeLoader extends StatefulWidget {

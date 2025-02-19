@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:base_doanh/widgets/dialog/decorate_app.dart';
-import 'package:base_doanh/widgets/dialog/line_spin_fade_loader.dart';
+import 'package:hapycar/config/themes/app_theme.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 enum Indicator {
   ballPulse,
@@ -44,37 +44,22 @@ class CupertinoLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 80,
-      height: 80,
-      child: DecorateContext(
-        decorateData: DecorateData(
-            indicator: Indicator.lineSpinFadeLoader,
-            colors: getListColor(),
-            strokeWidth: 4),
-        child: const AspectRatio(
-          aspectRatio: 1,
-          child: LineSpinFadeLoader(),
-        ),
-      ),
+    return LoadingAnimationWidget.waveDots(
+      size: 42,
+      color: AppTheme.getInstance().colorOrange(),
     );
   }
 }
 
 List<Color> getListColor() {
   final colors = <Color>[
-    const Color(0xffFF4044),
-    const Color(0xffff4a51),
-    const Color(0xffff545e),
-    const Color(0xffff5e6b),
-    const Color(0xffff6878),
-    const Color(0xffff7285),
-    const Color(0xffff7c92),
-    const Color(0xffff869f),
-    const Color(0xffff90ad),
-    const Color(0xffffa4c1),
-    const Color(0xffff2828),
-    const Color(0xffff3637),
+    AppTheme.getInstance().colorOrange(),
+    AppTheme.getInstance().colorOrange().withOpacity(0.9),
+    AppTheme.getInstance().colorOrange().withOpacity(0.8),
+    AppTheme.getInstance().colorOrange().withOpacity(0.7),
+    AppTheme.getInstance().colorOrange().withOpacity(0.6),
+    AppTheme.getInstance().colorOrange().withOpacity(0.5),
+    AppTheme.getInstance().colorOrange(),
   ];
   return colors;
 }

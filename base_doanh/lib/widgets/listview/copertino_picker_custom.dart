@@ -128,7 +128,6 @@ class _CupertinoPickerCustomState extends State<CupertinoPickerCustom> {
         hasSuitableHapticHardware = false;
         break;
     }
-    assert(hasSuitableHapticHardware != null);
     if (hasSuitableHapticHardware && index != _lastHapticIndex) {
       _lastHapticIndex = index;
       HapticFeedback.selectionClick();

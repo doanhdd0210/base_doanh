@@ -12,8 +12,8 @@ class ModalProgressHUD extends StatelessWidget {
   const ModalProgressHUD({
     Key? key,
     required this.inAsyncCall,
-    this.opacity = 0.3,
-    this.color = Colors.grey,
+    this.opacity = 0.4,
+    this.color = Colors.black,
     this.progressIndicator = const CircularProgressIndicator.adaptive(),
     this.offset,
     this.dismissible = false,
@@ -27,7 +27,9 @@ class ModalProgressHUD extends StatelessWidget {
     if (inAsyncCall) {
       Widget layOutProgressIndicator;
       if (offset == null) {
-        layOutProgressIndicator = Center(child: progressIndicator);
+        layOutProgressIndicator = Center(
+          child: progressIndicator,
+        );
       } else {
         layOutProgressIndicator = Positioned(
           left: offset!.dx,
@@ -45,6 +47,7 @@ class ModalProgressHUD extends StatelessWidget {
       widgetList += modal;
     }
     return Stack(
+      fit: StackFit.expand,
       children: widgetList,
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:base_doanh/config/themes/app_theme.dart';
-import 'package:base_doanh/utils/app_utils.dart';
-import 'package:base_doanh/utils/style_utils.dart';
+import 'package:hapycar/config/themes/app_theme.dart';
+import 'package:hapycar/utils/app_utils.dart';
+import 'package:hapycar/utils/style_utils.dart';
 
 class ContainerBottomSheet extends StatelessWidget {
   const ContainerBottomSheet({
@@ -29,7 +29,7 @@ class ContainerBottomSheet extends StatelessWidget {
                 bottomLeft: border,
               ),
         color: AppTheme.getInstance().backgroundColor(),
-        boxShadow: boxShadow1,
+        boxShadow: boxShadowBase,
       ),
       child: child,
     );

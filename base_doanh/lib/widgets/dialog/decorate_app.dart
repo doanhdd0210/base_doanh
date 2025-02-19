@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:base_doanh/widgets/dialog/cupertino_loading.dart';
+import 'package:hapycar/widgets/dialog/cupertino_loading.dart';
 
 const double _kDefaultStrokeWidth = 2;
 

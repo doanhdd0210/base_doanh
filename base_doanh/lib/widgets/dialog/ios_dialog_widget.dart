@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:base_doanh/config/resources/styles.dart';
-import 'package:base_doanh/generated/l10n.dart';
-import 'package:base_doanh/utils/get_ext.dart';
+import 'package:hapycar/config/resources/styles.dart';
+
+import 'package:hapycar/utils/get_ext.dart';
+
+import '../../presentation/language/language_data.dart';
 
 class IOSDialog extends StatelessWidget {
   final String? title;
@@ -48,7 +50,7 @@ class IOSDialog extends StatelessWidget {
   Widget cancelButton() {
     return CupertinoDialogAction(
       child: Text(
-        cancel ?? S.current.cancel,
+        cancel ?? Lang.key(keyT.CANCEL),
         style: textNormal(null, 14),
       ),
       onPressed: () {
@@ -61,7 +63,7 @@ class IOSDialog extends StatelessWidget {
   Widget okButton() {
     return CupertinoDialogAction(
       child: Text(
-        ok ?? S.current.ok,
+        ok ?? Lang.key(keyT.CONFIRM),
         style: textNormal(null, 14),
       ),
       onPressed: () {

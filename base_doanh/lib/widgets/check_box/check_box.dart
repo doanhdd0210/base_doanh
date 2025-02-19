@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:base_doanh/utils/style_utils.dart';
+import 'package:hapycar/utils/style_utils.dart';
 
 class CheckBox extends StatefulWidget {
   final Widget child;
